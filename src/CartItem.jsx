@@ -6,7 +6,6 @@ import './CartItem.css';
 const CartItem = ({ onContinueShopping }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
-  console.log("Cart Items:", cartItems); 
 
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
@@ -60,7 +59,7 @@ const CartItem = ({ onContinueShopping }) => {
     <div className="cart-container">
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
       <div>
-        {cart.map(item => (
+        {cartItems.map(item => (
           <div className="cart-item" key={item.name}>
             <img className="cart-item-image" src={item.image} alt={item.name} />
             <div className="cart-item-details">
